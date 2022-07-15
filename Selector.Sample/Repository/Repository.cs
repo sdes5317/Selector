@@ -4,7 +4,7 @@ namespace Selector.Sample.Repository
 {
     internal class Repository
     {
-        public IEnumerable<string> SelectDistinctPropertyFromPerson(Expression<Func<PersonDao, object>> selector)
+        public IEnumerable<string> SelectDistinctPropertyFromPerson<TProperty>(Expression<Func<PersonDao, TProperty>> selector)
         {
             var selectColumn = Selector.Get(selector);
             var sqlCommand = $"Select Distinct {selectColumn} From Person";
